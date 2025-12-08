@@ -3,11 +3,11 @@
   flex-direction: column;
   margin: auto;
   width: 100%;
-  max-width: 600px;
-  margin-top: 200px;
+  max-width: 500px;
+  margin-top: 100px;
   background-color: #ffffff;
   padding: 30px 20px 40px;
-  border-radius: 10px;
+  border-radius: 50px 120px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
   box-sizing: border-box;
   position: relative;
@@ -57,7 +57,7 @@
 }
 
 .underline {
-  width: 61px;
+  width: 71px;
   height: 6px;
   background-color: #3c009d;
   border-radius: 9px;
@@ -67,7 +67,7 @@
   margin-top: 10px;
   text-align: center;
   color: #4c00b4;
-  font-size: 14px;
+  font-size: 15px;
 }
 
 .inputs {
@@ -79,10 +79,10 @@
 }
 
 .input {
-  width: 100%;
-  max-width: 480px;
-  height: 80px;
-  border-radius: 6px;
+  width: 90%;
+  max-width: 470px;
+  height: 70px;
+  border-radius: 50px;
   align-items: center;
   margin: auto;
   display: flex;
@@ -108,12 +108,12 @@
 }
 
 .input-field::placeholder {
-  color: #797979;
+  color: red;
   font-weight: 500;
 }
 
 .input-error {
-  border: 1px solid #e53e3e;
+  border: 2px solid #e53e3e;
   box-shadow: 0 0 0 1px rgba(229, 62, 62, 0.2);
 }
 
@@ -168,7 +168,7 @@
 
 .submit:hover {
   opacity: 0.9;
-  transform: translateY(-1px);
+  transform: translateY(-10px);
 }
 
 .submit:active {
