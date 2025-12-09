@@ -1,27 +1,27 @@
-import React, { useState } from 'react';
-import './LoginSignup.css';
-import userIcon from '../Assets/person.png';
-import emailIcon from '../Assets/email.png';
-import passwordIcon from '../Assets/password.png';
-import confetti from 'canvas-confetti'; // important: npm install canvas-confetti
+import confetti from "canvas-confetti"; // important: npm install canvas-confetti
+import { useState } from "react";
+import emailIcon from "../Assets/email.png";
+import passwordIcon from "../Assets/password.png";
+import userIcon from "../Assets/person.png";
+import "./LoginSignup.css";
 
 const LoginSignup = () => {
-  const [mode, setMode] = useState('Sign Up'); // "Sign Up" | "Login"
-  const isLogin = mode === 'Login';
+  const [mode, setMode] = useState("Sign Up"); // "Sign Up" | "Login"
+  const isLogin = mode === "Login";
 
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    password: '',
+    name: "",
+    email: "",
+    password: "",
   });
 
   const [errors, setErrors] = useState({});
-  const [message, setMessage] = useState('');
+  const [message, setMessage] = useState("");
   const [createdUser, setCreatedUser] = useState(null);
 
   // loading states
   const [isRedirecting, setIsRedirecting] = useState(false); // 5 sec after signup
-  const [isLoggingIn, setIsLoggingIn] = useState(false);     // 3 sec on login
+  const [isLoggingIn, setIsLoggingIn] = useState(false); // 3 sec on login
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -31,7 +31,7 @@ const LoginSignup = () => {
     }));
     setErrors((prev) => ({
       ...prev,
-      [name]: '',
+      [name]: "",
     }));
   };
 
@@ -41,26 +41,27 @@ const LoginSignup = () => {
   };
 
   const validatePassword = (password) => {
-    if (password.length < 6) return 'Password must be at least 6 characters';
-    if (!/\d/.test(password)) return 'Password must contain at least one number';
-    return '';
+    if (password.length < 6) return "Password must be at least 6 characters";
+    if (!/\d/.test(password))
+      return "Password must contain at least one number";
+    return "";
   };
 
   const handleSignUp = () => {
     const newErrors = {};
 
     if (!formData.name.trim()) {
-      newErrors.name = 'Please fill the name field';
+      newErrors.name = "Please fill the name field";
     }
 
     if (!formData.email.trim()) {
-      newErrors.email = 'Please fill the email field';
+      newErrors.email = "Please fill the email field";
     } else if (!validateEmail(formData.email)) {
-      newErrors.email = 'Please enter a valid email ID';
+      newErrors.email = "Please enter a valid email ID";
     }
 
     if (!formData.password.trim()) {
-      newErrors.password = 'Please fill the password field';
+      newErrors.password = "Please fill the password field";
     } else {
       const pwdError = validatePassword(formData.password);
       if (pwdError) newErrors.password = pwdError;
@@ -68,7 +69,7 @@ const LoginSignup = () => {
 
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
-      setMessage('⚠️ Please fill the above fields correctly.');
+      setMessage("⚠️ Please fill the above fields correctly.");
       return;
     }
 
@@ -80,18 +81,18 @@ const LoginSignup = () => {
       name: formData.name,
     });
 
-    setMessage('🎉 Account updated / created! Redirecting to Login...');
+    setMessage("🎉 Account updated / created! Redirecting to Login...");
     setIsRedirecting(true);
 
     // 5 sec loading, then go to Login page
     setTimeout(() => {
       setIsRedirecting(false);
-      setMode('Login');
-      setMessage('Now login with your email and password.');
+      setMode("Login");
+      setMessage("Now login with your email and password.");
       // form clear pannalaam
       setFormData((prev) => ({
         ...prev,
-        password: '',
+        password: "",
       }));
     }, 5000);
   };
@@ -100,18 +101,18 @@ const LoginSignup = () => {
     const newErrors = {};
 
     if (!formData.email.trim()) {
-      newErrors.email = 'Please fill the email field';
+      newErrors.email = "Please fill the email field";
     } else if (!validateEmail(formData.email)) {
-      newErrors.email = 'Please enter a valid email ID';
+      newErrors.email = "Please enter a valid email ID";
     }
 
     if (!formData.password.trim()) {
-      newErrors.password = 'Please fill the password field';
+      newErrors.password = "Please fill the password field";
     }
 
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
-      setMessage('⚠️ Please fill the above fields correctly.');
+      setMessage("⚠️ Please fill the above fields correctly.");
       return;
     }
 
@@ -122,7 +123,7 @@ const LoginSignup = () => {
     ) {
       // 3 sec loading, then celebration
       setIsLoggingIn(true);
-      setMessage('⏳ Logging in...');
+      setMessage("⏳ Logging in...");
 
       setTimeout(() => {
         setIsLoggingIn(false);
@@ -134,28 +135,30 @@ const LoginSignup = () => {
         });
       }, 3000);
     } else if (createdUser) {
-      setMessage('❌ Email or password is incorrect. Try again.');
+      setMessage("❌ Email or password is incorrect. Try again.");
     } else {
-      setMessage('✅ Login clicked (demo). In real app this will call API.');
+      setMessage("✅ Login clicked (demo). In real app this will call API.");
     }
   };
 
   const switchToSignUp = () => {
-    setMode('Sign Up');
-    setMessage('');
+    setMode("Sign Up");
+    setMessage("");
     setErrors({});
   };
 
   const switchToLogin = () => {
-    setMode('Login');
-    setMessage('');
+    setMode("Login");
+    setMessage("");
     setErrors({});
   };
 
   const handleForgotPassword = () => {
     // forgot password click -> go to Sign Up flow to reset password
-    setMode('Sign Up');
-    setMessage('🔁 Reset your password: enter your name, email and new password, then click Sign Up.');
+    setMode("Sign Up");
+    setMessage(
+      "🔁 Reset your password: enter your name, email and new password, then click Sign Up."
+    );
     setErrors({});
   };
 
@@ -165,7 +168,7 @@ const LoginSignup = () => {
       {(isRedirecting || isLoggingIn) && (
         <div className="overlay">
           <div className="loader"></div>
-          <p>{isRedirecting ? 'Redirecting to Login...' : 'Logging in...'}</p>
+          <p>{isRedirecting ? "Redirecting to Login..." : "Logging in..."}</p>
         </div>
       )}
 
@@ -184,7 +187,7 @@ const LoginSignup = () => {
 
       <div className="inputs">
         {!isLogin && (
-          <div className={`input ${errors.name ? 'input-error' : ''}`}>
+          <div className={`input ${errors.name ? "input-error" : ""}`}>
             <img src={userIcon} alt="User icon" className="icon" />
             <input
               type="text"
@@ -198,7 +201,7 @@ const LoginSignup = () => {
         )}
         {errors.name && <p className="error-text">{errors.name}</p>}
 
-        <div className={`input ${errors.email ? 'input-error' : ''}`}>
+        <div className={`input ${errors.email ? "input-error" : ""}`}>
           <img src={emailIcon} alt="Email icon" className="icon" />
           <input
             type="email"
@@ -211,7 +214,7 @@ const LoginSignup = () => {
         </div>
         {errors.email && <p className="error-text">{errors.email}</p>}
 
-        <div className={`input ${errors.password ? 'input-error' : ''}`}>
+        <div className={`input ${errors.password ? "input-error" : ""}`}>
           <img src={passwordIcon} alt="Password icon" className="icon" />
           <input
             type="password"
@@ -227,17 +230,14 @@ const LoginSignup = () => {
 
       {isLogin && (
         <div className="forgot-password">
-          Lost Password?{' '}
-          <span onClick={handleForgotPassword}>
-            Click Here!
-          </span>
+          Lost Password? <span onClick={handleForgotPassword}>Click Here!</span>
         </div>
       )}
 
       <div className="submit-container">
         <button
           type="button"
-          className={`submit ${isLogin ? 'outline' : ''}`}
+          className={`submit ${isLogin ? "outline" : ""}`}
           onClick={isLogin ? switchToSignUp : handleSignUp}
         >
           Sign Up
@@ -245,7 +245,7 @@ const LoginSignup = () => {
 
         <button
           type="button"
-          className={`submit ${!isLogin ? 'outline' : ''}`}
+          className={`submit ${!isLogin ? "outline" : ""}`}
           onClick={isLogin ? handleLogin : switchToLogin}
         >
           Login
