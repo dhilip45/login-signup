@@ -211,14 +211,11 @@
     transform: rotate(360deg);
   }
 }
-/* -------------------------------------------------- */
-/*     360×740 PERFECT MOBILE VIEW OPTIMIZATION       */
-/* -------------------------------------------------- */
-@media (max-width: 400px) {
 
+@media (max-width: 600px) {
   /* Container fit for small screens */
   .container {
-    width: 92%;
+    width: 80%;
     padding: 20px 15px;
     margin-top: 60px; /* reduces top empty space */
     border-radius: 25px;
@@ -307,4 +304,3 @@
     font-size: 13px;
   }
 }
-
