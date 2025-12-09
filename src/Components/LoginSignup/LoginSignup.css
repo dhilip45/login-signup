@@ -211,3 +211,100 @@
     transform: rotate(360deg);
   }
 }
+/* -------------------------------------------------- */
+/*     360×740 PERFECT MOBILE VIEW OPTIMIZATION       */
+/* -------------------------------------------------- */
+@media (max-width: 400px) {
+
+  /* Container fit for small screens */
+  .container {
+    width: 92%;
+    padding: 20px 15px;
+    margin-top: 60px; /* reduces top empty space */
+    border-radius: 25px;
+  }
+
+  /* Main heading */
+  .text {
+    font-size: 32px;
+  }
+
+  .underline {
+    width: 55px;
+    height: 5px;
+  }
+
+  .info-text {
+    font-size: 13px;
+    padding: 0 10px;
+  }
+
+  /* Input fields */
+  .inputs {
+    gap: 8px;
+    margin-top: 18px;
+  }
+
+  .input {
+    width: 100%;
+    height: 58px;
+    border-radius: 35px;
+    padding: 0 14px;
+  }
+
+  .input input {
+    font-size: 17px;
+    height: 45px;
+  }
+
+  .input img {
+    margin: 0 14px;
+    width: 18px;
+  }
+
+  .error-text {
+    font-size: 12px;
+    padding-left: 8px;
+  }
+
+  /* Forgot password */
+  .forgot-password {
+    padding-left: 15px;
+    font-size: 14px;
+    margin-top: 10px;
+  }
+
+  /* Submit button container */
+  .submit-container {
+    flex-direction: column;
+    width: 100%;
+    gap: 15px;
+    margin-top: 30px;
+  }
+
+  /* Buttons — PERFECT mobile fit */
+  .submit {
+    width: 100%;
+    height: 55px;
+    border-radius: 35px;
+    font-size: 17px;
+  }
+
+  .submit:hover {
+    transform: translateY(-4px);
+  }
+
+  /* Outline button fix */
+  .submit.outline {
+    background: #fff;
+    border-width: 2px;
+  }
+
+  /* Toast fits properly */
+  .toast {
+    top: -60px;
+    padding: 8px 12px;
+    font-size: 13px;
+  }
+}
+
