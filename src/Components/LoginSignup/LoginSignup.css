@@ -13,7 +13,7 @@
   position: relative;
 }
 
-/* Toast / celebration message */
+/* Toast part */
 .toast {
   position: absolute;
   top: -70px;
@@ -159,7 +159,6 @@
     color 0.2s ease;
 }
 
-/* secondary / outline style for inactive mode */
 .submit.outline {
   background: #ffffff;
   color: #4c00b4;
@@ -211,9 +210,8 @@
     transform: rotate(360deg);
   }
 }
-
+/* Mobile View */
 @media (max-width: 600px) {
-  /* Container fit for small screens */
   .container {
     width: 80%;
     padding: 20px 15px;
@@ -236,7 +234,6 @@
     padding: 0 10px;
   }
 
-  /* Input fields */
   .inputs {
     gap: 8px;
     margin-top: 18px;
@@ -264,14 +261,13 @@
     padding-left: 8px;
   }
 
-  /* Forgot password */
+  /* password */
   .forgot-password {
     padding-left: 15px;
     font-size: 14px;
     margin-top: 10px;
   }
 
-  /* Submit button container */
   .submit-container {
     flex-direction: column;
     width: 100%;
@@ -279,7 +275,6 @@
     margin-top: 30px;
   }
 
-  /* Buttons — PERFECT mobile fit */
   .submit {
     width: 100%;
     height: 55px;
@@ -291,13 +286,11 @@
     transform: translateY(-4px);
   }
 
-  /* Outline button fix */
   .submit.outline {
     background: #fff;
     border-width: 2px;
   }
 
-  /* Toast fits properly */
   .toast {
     top: -60px;
     padding: 8px 12px;

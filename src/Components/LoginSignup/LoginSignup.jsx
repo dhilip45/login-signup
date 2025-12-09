@@ -1,4 +1,4 @@
-import confetti from "canvas-confetti"; // important: npm install canvas-confetti
+import confetti from "canvas-confetti";
 import { useState } from "react";
 import emailIcon from "../Assets/email.png";
 import passwordIcon from "../Assets/password.png";
